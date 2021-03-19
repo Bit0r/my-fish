@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+import json
+
+import requests
+
+headers = {
+    'User-Agent':
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36'
+}
+
+proxies = {'http': 'http://localhost:8800', 'https': 'http://localhost:8800'}
+
+urls = [
+    'https://api.github.com/meta',
+    'https://core.telegram.org/resources/cidr.txt'
+]
+
+responses = list(
+    map(lambda url: requests.get(url, headers=headers, proxies=proxies), urls))
+
+cidr = []
+cidr += responses[0].json()['git']
+cidr += responses[1].text.split()
+
+with open('/usr/local/etc/xray/config.json', 'r+') as fp:
+    config = json.load(fp)
+    config['routing']['rules'][-1]['ip'] = cidr
+    fp.seek(0)
+    fp.truncate()
+    json.dump(config, fp, ensure_ascii=False, indent=2)

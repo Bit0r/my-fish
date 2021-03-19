@@ -1,0 +1,10 @@
+nginx
+mysql-server
+mycli
+mydumper
+php
+php-fpm
+php-mysql
+php-curl
+php-mbstring
+php-xdebug

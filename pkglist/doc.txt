@@ -1,0 +1,5 @@
+gcc-doc
+mydumper-doc
+python-networkx-doc
+python-pygraphviz-doc
+python-scrapy-doc

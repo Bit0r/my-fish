@@ -1,0 +1,5 @@
+clang-format
+build-essential
+gcc-multilib
+gdb
+libmpfr-dev
