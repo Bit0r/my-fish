@@ -58,6 +58,7 @@ end
 hard-alias cat bat
 hard-alias ls exa
 
+# 添加ppa
 if confirm 'Do you want to add some ppa?'
     for ppa in (cat pkglist/ppa.txt)
         sudo add-apt-repository -ynP $ppa

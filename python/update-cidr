@@ -27,5 +27,5 @@ with open('/usr/local/etc/xray/config.json', 'r+') as fp:
     config = json.load(fp)
     config['routing']['rules'][-1]['ip'] = cidr
     fp.seek(0)
+    json.dump(config, fp, ensure_ascii=False, allow_nan=False, indent='\t')
     fp.truncate()
-    json.dump(config, fp, ensure_ascii=False, indent=2)
