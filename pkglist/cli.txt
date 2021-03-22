@@ -6,6 +6,7 @@ exa
 fd-find
 git
 git-lfs
+gnome-keyring
 jq
 lhasa
 lnav

@@ -34,13 +34,12 @@ add-list 'Do you want to install some awesome fonts?' fonts
 add-list 'Do you want to install office suite?' office
 
 # 开始安装
-if count $pkglist >/dev/null
-    set files
-    for pkg in $pkglist
-        set -a files pkglist/$pkg.txt
-    end
-    sudo apt install (cat $files)
+set files /dev/null
+for pkg in $pkglist
+    set -a files pkglist/$pkg.txt
 end
+sudo apt install (cat $files)
+
 
 # 进行软链接
 if type yarnpkg &>/dev/null && ! type yarn &>/dev/null
@@ -49,13 +48,22 @@ end
 
 # 给可执行文件设置一个“硬别名”
 function hard-alias
-    if [ -x /usr/bin/$argv[2] ]
-        sudo ln -s /usr/bin/$argv[2] /usr/local/bin/$argv[1]
+    set target /usr/bin/$argv[2]
+    set link_name /usr/local/bin/$argv[1]
+    if [ -x $target -a ! -e $link_name ]
+        sudo ln -s $target $link_name
     end
 end
 
 hard-alias cat bat
 hard-alias ls exa
+
+if confirm 'Do you want to add some ppa?'
+    for ppa in (cat pkglist/ppa.txt)
+        sudo add-apt-repository -ynP $ppa
+    end
+    sudo apt update
+end
 
 # 修改内核参数
 if confirm 'Do you want to optimize kernel parameters?'

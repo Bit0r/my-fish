@@ -1,0 +1,3 @@
+fish-shell/release-3
+serge-rider/dbeaver-ce
+obsproject/obs-studio

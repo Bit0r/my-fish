@@ -1,4 +1,4 @@
 default-jdk
 icedtea-netx
-tomcat9
 jetty9
+tomcat9

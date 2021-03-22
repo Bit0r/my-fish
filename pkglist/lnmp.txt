@@ -1,10 +1,10 @@
-nginx
-mysql-server
 mycli
 mydumper
+mysql-server
+nginx
 php
-php-fpm
-php-mysql
 php-curl
+php-fpm
 php-mbstring
+php-mysql
 php-xdebug
