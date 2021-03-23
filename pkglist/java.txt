@@ -1,4 +1,5 @@
 default-jdk
+fastboot
 icedtea-netx
 jetty9
 tomcat9
