@@ -1,8 +1,6 @@
-# 定义确认函数
-function confirm
-    read -P $argv[1]' [y/N] ' REPLY
-    [ $REPLY = y ]
-end
+#!/usr/bin/fish
+
+source include/confirm.fish
 
 # 安装基本配置
 if confirm 'Do you want to install configs?'
@@ -13,36 +11,16 @@ if confirm 'Do you want to install configs?'
     sudo install python/* /usr/local/bin/
 end
 
-# 定义清单函数
-set pkglist
-function add-list
-    if confirm $argv[1]
-        set -a pkglist $argv[2]
+# 添加ppa
+if confirm 'Do you want to add some ppa?'
+    for ppa in (cat pkglist/ppa.txt)
+        sudo add-apt-repository -ynP $ppa
     end
+    sudo apt update
 end
 
-# 添加清单
-add-list 'Do you want to install C?' c
-add-list 'Do you want to install LNMP?' lnmp
-add-list 'Do you want to install nodejs?' nodejs
-add-list 'Do you want to install Python3 dependencies?' python3
-add-list 'Do you want to install Java?' java
-add-list 'Do you want to install Rust?' rust
-add-list 'Do you want to install some awesome cli softwares?' cli
-add-list 'Do you want to install some awesome gui softwares?' gui
-add-list 'Do you want to install nvidia-gui?' nvidia
-add-list 'Do you want to install some awesome gui softwares?' gui
-add-list 'Do you want to install some software docs?' doc
-add-list 'Do you want to install some awesome fonts?' fonts
-add-list 'Do you want to install office suite?' office
-
-# 开始安装
-set files /dev/null
-for pkg in $pkglist
-    set -a files pkglist/$pkg.txt
-end
-sudo apt install (cat $files)
-
+# 使用apt安装软件
+source base.fish
 
 # 进行软链接
 if type yarnpkg &>/dev/null && ! type yarn &>/dev/null
@@ -61,12 +39,14 @@ end
 hard-alias cat bat
 hard-alias ls exa
 
-# 添加ppa
-if confirm 'Do you want to add some ppa?'
-    for ppa in (cat pkglist/ppa.txt)
-        sudo add-apt-repository -ynP $ppa
-    end
-    sudo apt update
+# 进行软件源配置
+if confirm 'Do you want to configure software registries?'
+    source registry.fish
+end
+
+# 使用包管理安装额外软件
+if confirm 'Do you want to use external package manager to install some softwares?'
+    source extra.fish
 end
 
 # 修改内核参数
@@ -78,11 +58,6 @@ end
 if confirm 'Do you want to configure update-alternatives?'
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 40 --slave /usr/share/man/man1/python.1.gz python.1.gz /usr/share/man/man1/python3.1.gz
     sudo update-alternatives --install /usr/bin/editor editor /usr/bin/micro 80 --slave /usr/share/man/man1/editor.1.gz editor.1.gz /usr/share/man/man1/micro.1.gz
-end
-
-# 进行软件源配置
-if confirm 'Do you want to configure software registries?'
-    source config/registry.fish
 end
 
 # 将用户附加到组
@@ -103,4 +78,9 @@ if confirm 'Do you want to add yourself to some groups?'
     end
     groups-append wireshark
     groups-append docker
+end
+
+# 安装一些下载特别耗时的软件
+if confirm 'Do you want to install some softwares that downloads very slowly?'
+    source slow.fish
 end

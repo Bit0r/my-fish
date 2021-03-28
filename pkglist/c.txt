@@ -3,3 +3,5 @@ build-essential
 gcc-multilib
 gdb
 libmpfr-dev
+linux-tools-common
+linux-tools-generic

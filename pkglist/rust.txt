@@ -1,3 +1,4 @@
 libssl-dev
+lld
 pkg-config
 rustc

@@ -1,4 +1,5 @@
 gcc-doc
+manpages-zh
 mydumper-doc
 python-networkx-doc
 python-pygraphviz-doc

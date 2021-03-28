@@ -1,0 +1,5 @@
+vaex
+fire
+handcalcs
+pymusic-dl
+pqdict
