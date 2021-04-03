@@ -23,17 +23,13 @@ end
 source base.fish
 
 # 进行软链接
-if type yarnpkg &>/dev/null && ! type yarn &>/dev/null
-    sudo ln -s /usr/share/nodejs/yarn/bin/yarn.js /usr/local/bin/yarn
-end
+type -q yarnpkg && ! type -q yarn && sudo ln -s /usr/share/nodejs/yarn/bin/yarn.js /usr/local/bin/yarn
 
 # 给可执行文件设置一个“硬别名”
 function hard-alias
     set target /usr/bin/$argv[2]
     set link_name /usr/local/bin/$argv[1]
-    if [ -x $target -a ! -e $link_name ]
-        sudo ln -s $target $link_name
-    end
+    sudo ln -s $target $link_name
 end
 
 hard-alias cat bat
@@ -63,19 +59,12 @@ end
 # 将用户附加到组
 function groups-append
     set arg1 $argv[1]
-    if grep "^$arg1:" /etc/group >/dev/null
-        sudo usermod -aG $arg1 $USER
-    else
-        false
-    end
+    rg -q "^$arg1:" /etc/group && sudo usermod -aG $arg1 $USER
 end
 
 # 添加自身到必需的组
 if confirm 'Do you want to add yourself to some groups?'
-    if groups-append www-data
-        sudo chown www-data:www-data /var/www/
-        sudo chmod 2775 /var/www/
-    end
+    groups-append www-data && sudo chown www-data:www-data /var/www/ && sudo chmod 2775 /var/www/
     groups-append wireshark
     groups-append docker
 end
