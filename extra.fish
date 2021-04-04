@@ -1,5 +1,5 @@
 #!/usr/bin/fish
 
-if type pip >/dev/null
+if type -q pip
     pip install -r pkglist/requirements.txt
 end

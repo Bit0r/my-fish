@@ -33,7 +33,6 @@ function hard-alias
 end
 
 hard-alias cat bat
-hard-alias ls exa
 
 # 进行软件源配置
 if confirm 'Do you want to configure software registries?'
