@@ -9,10 +9,12 @@ git-lfs
 gnome-keyring
 hspell
 jq
+libimage-exiftool-perl
 lhasa
 lnav
 micro
 ncat
+parallel
 rar
 ripgrep
 rpm

@@ -1,0 +1,25 @@
+[user]
+    name = Bit0r
+    email = nie_wang@outlook.com
+[core]
+    editor = code -w
+    hooksPath = ~/.config/git/hooks
+[http "https://github.com"]
+    proxy = socks5://localhost
+[credential]
+    helper = store --file ~/.config/git/git-credentials
+[rerere]
+    enabled = true
+[pull]
+    ff = only
+[push]
+    recurseSubmodules = on-demand
+[diff]
+    tool = default-difftool
+    submodule = log
+[difftool "default-difftool"]
+    cmd = code -w -d $LOCAL $REMOTE
+[diff "exif"]
+    textconv = exiftool
+[merge "ours"]
+    driver = true

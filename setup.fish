@@ -44,6 +44,13 @@ if confirm 'Do you want to use external package manager to install some software
     source extra.fish
 end
 
+# 安装软件配置
+if confirm 'Do you want to install some softwares config?'
+    cp config/wget2.conf ~/.wget2rc
+    mkdir -p ~/.config/git/ && cp config/.gitconfig ~/.config/git/config
+    mkdir -p ~/.local/share/pandoc/ && cp config/pandoc.yaml ~/.local/share/pandoc/default.yarn
+end
+
 # 修改内核参数
 if confirm 'Do you want to optimize kernel parameters?'
     sudo sh -c 'cat config/sysctl.conf >> /etc/sysctl.conf'
