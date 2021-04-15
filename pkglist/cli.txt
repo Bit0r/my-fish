@@ -1,3 +1,4 @@
+aria2
 arj
 cmatrix
 dos2unix

@@ -49,6 +49,7 @@ if confirm 'Do you want to install some softwares config?'
     mkdir -p ~/.config/git/ && cp config/.gitconfig ~/.config/git/config
     mkdir -p ~/.local/share/pandoc/ && cp config/pandoc.yaml ~/.local/share/pandoc/default.yarn
     mkdir -p ~/.config/aria2/ && cp config/aria2.conf ~/.config/aria2/
+    sudo mkdir -p /root/.config/aria2/ && sudo cp config/aria2.conf /root/.config/aria2/
     cp config/konsole.conf ~/.local/share/konsole/配置方案-1.profile
     cp config/wget2.conf ~/.wget2rc
 end
