@@ -1,6 +1,7 @@
 gcc-doc
 manpages-zh
 mydumper-doc
+python-cffi-doc
 python-networkx-doc
 python-pygraphviz-doc
 python-scrapy-doc

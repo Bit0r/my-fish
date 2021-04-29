@@ -1,6 +1,6 @@
 fire
 handcalcs
 lux
+polars
 pqdict
 pymusic-dl
-vaex
