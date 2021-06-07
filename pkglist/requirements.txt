@@ -3,4 +3,6 @@ handcalcs
 lux
 polars
 pqdict
+playwright
 pymusic-dl
+pywhat
