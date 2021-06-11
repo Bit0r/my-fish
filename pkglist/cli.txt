@@ -16,6 +16,7 @@ lhasa
 lnav
 micro
 ncat
+net-tools
 parallel
 rar
 ripgrep

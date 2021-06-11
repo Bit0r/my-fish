@@ -1,5 +1,6 @@
 bleachbit
 galternatives
+gnome-themes-extra
 gufw
 kcharselect
 kde-config-cron
