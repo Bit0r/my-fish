@@ -1,9 +1,9 @@
 aria2
 arj
+attr
 cmatrix
 dos2unix
 enca
-exa
 fd-find
 git
 git-lfs
@@ -13,6 +13,7 @@ hspell
 jq
 libimage-exiftool-perl
 lhasa
+lm-sensors
 lnav
 micro
 ncat

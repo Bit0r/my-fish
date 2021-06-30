@@ -9,3 +9,8 @@ end
 if type -q yarn
     yarn config set registry 'https://repo.huaweicloud.com/repository/npm/'
 end
+
+if type -q npm
+    npm config set registry 'https://repo.huaweicloud.com/repository/npm/'
+    npm cache clean -f
+end
