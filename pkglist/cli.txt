@@ -4,6 +4,7 @@ attr
 cmatrix
 dos2unix
 enca
+ext4magic
 fd-find
 git
 git-lfs
