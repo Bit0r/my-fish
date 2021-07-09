@@ -1,7 +1,3 @@
-mycli
-mydumper
-mysql-server
-nginx
 php
 php-curl
 php-fpm

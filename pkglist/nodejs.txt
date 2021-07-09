@@ -1,3 +1,0 @@
-nodejs
-node-typescript
-yarnpkg

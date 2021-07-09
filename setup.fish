@@ -11,19 +11,11 @@ if confirm 'Do you want to install configs?'
     sudo install python/* /usr/local/bin/
 end
 
-# 添加ppa
-if confirm 'Do you want to add some ppa?'
-    for ppa in (cat pkglist/ppa.txt)
-        sudo add-apt-repository -ynP $ppa
-    end
-    sudo apt update
-end
+# 添加apt源
+source sources.fish
 
 # 使用apt安装软件
 source base.fish
-
-# 进行软链接
-type -q yarnpkg && ! type -q yarn && sudo ln -s /usr/share/nodejs/yarn/bin/yarn.js /usr/local/bin/yarn
 
 # 给可执行文件设置一个“硬别名”
 function hard-alias

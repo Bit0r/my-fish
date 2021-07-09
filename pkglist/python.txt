@@ -4,7 +4,7 @@ isort
 jupyter
 mypy
 pylint
-uwsgi
+uvicorn
 yapf3
 python3-aiodns
 python3-aiohttp
@@ -16,7 +16,6 @@ python3-autopep8
 python3-commonmark
 python3-cffi
 python3-distlib
-python3-flask
 python3-greenlet
 python3-langdetect
 python3-mysql.connector

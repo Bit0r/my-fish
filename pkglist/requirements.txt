@@ -1,7 +1,6 @@
 fire
 handcalcs
 johnnydep
-lux
 polars
 pqdict
 playwright

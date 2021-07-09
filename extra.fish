@@ -2,6 +2,7 @@
 
 if type -q pip
     pip install -r pkglist/requirements.txt
+    sudo pip install -r pkglist/requirements-global.txt
 end
 
 if ! type -q client

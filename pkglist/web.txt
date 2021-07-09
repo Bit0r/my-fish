@@ -1,0 +1,5 @@
+mycli
+mydumper
+mysql-server
+nginx
+unit

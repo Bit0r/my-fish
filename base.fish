@@ -12,9 +12,9 @@ end
 
 # 添加清单
 add-list 'Do you want to install C?' c
-add-list 'Do you want to install LNMP?' lnmp
-add-list 'Do you want to install nodejs?' nodejs
-add-list 'Do you want to install Python3 dependencies?' python3
+add-list 'Do you want to install PHP?' php
+add-list 'Do you want to install Python dependencies?' python3
+add-list 'Do you want to install the Web development infrastructure?' web
 add-list 'Do you want to install Java?' java
 add-list 'Do you want to install Rust?' rust
 add-list 'Do you want to install some awesome cli softwares?' cli
