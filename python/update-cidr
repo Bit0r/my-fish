@@ -2,7 +2,7 @@
 
 import json
 
-import requests
+import grequests
 
 headers = {
     'User-Agent':
@@ -16,8 +16,9 @@ urls = [
     'https://core.telegram.org/resources/cidr.txt'
 ]
 
-responses = list(
-    map(lambda url: requests.get(url, headers=headers, proxies=proxies), urls))
+responses = grequests.map(
+    map(lambda url: grequests.get(url, headers=headers, proxies=proxies),
+        urls))
 
 cidr = []
 cidr += responses[0].json()['git']
@@ -27,5 +28,5 @@ with open('/usr/local/etc/xray/config.json', 'r+') as fp:
     config = json.load(fp)
     config['routing']['rules'][-1]['ip'] = cidr
     fp.seek(0)
-    json.dump(config, fp, ensure_ascii=False, allow_nan=False, indent='\t')
     fp.truncate()
+    json.dump(config, fp, ensure_ascii=False, allow_nan=False, indent='\t')

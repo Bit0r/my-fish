@@ -4,19 +4,13 @@ isort
 jupyter
 mypy
 pylint
-uvicorn
 yapf3
-python3-aiodns
-python3-aiohttp
-python3-aiohttp-dbg
-python3-aiohttp-socks
 python3-appdirs
 python3-arrow
 python3-autopep8
 python3-commonmark
 python3-cffi
 python3-distlib
-python3-greenlet
 python3-langdetect
 python3-mysql.connector
 python3-networkx
@@ -29,7 +23,6 @@ python3-requestsexceptions
 python3-scrapy
 python3-seaborn
 python3-sklearn
-python3-socks
 python3-sqlalchemy-i18n
 python3-statsmodels
 python3-structlog
